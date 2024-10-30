@@ -23,3 +23,9 @@ body{
 #countdown div span{
     color: #BD75F4;
 }
+
+#end{
+    font-size: 1.5em;
+    color: rgb(238, 0, 255);
+        
+}
