@@ -1,20 +1,27 @@
 
-var countDownDate = new Date("Dec 25, 2024 00:00:00").getTime();
 
+let countDownDate = localStorage.getItem('countDownDate');
+if (!countDownDate) {
+    
+    countDownDate = new Date("Dec 25, 2024 00:00:00").getTime();
+    localStorage.setItem('countDownDate', countDownDate);
+} else {
+    countDownDate = parseInt(countDownDate);
+}
 
-var myfunc = setInterval(function() {
+const myfunc = setInterval(function() {
+    
+    const now = new Date().getTime();
 
     
-    var now = new Date().getTime();
-
-    
-    var timeleft = countDownDate - now;
+    const timeleft = countDownDate - now;
 
 
-    var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+    const days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+
 
     
     document.getElementById("days").innerHTML = days + "<span> Days</span>";
@@ -27,5 +34,7 @@ var myfunc = setInterval(function() {
         clearInterval(myfunc);
         document.getElementById("countdown").style.display = "none";
         document.getElementById("end").innerHTML = "TIME UP!!";
+        alert("the countdown has ended! Merry Christmas")
+        localStorage.removeItem('countDownDate')
     }
 }, 1000);
