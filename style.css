@@ -1,0 +1,25 @@
+body{
+    background-color: #ebebeb;
+    max-width: 900px;
+    margin: 3rem auto;
+    text-align: center;
+}
+
+#countdown{
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 15px 0 rgba(225, 192, 250, 0.7);
+}
+
+#countdown div {
+    display: inline-block;
+    margin: 0 0.5rem;
+    
+}
+
+#countdown div span{
+    color: #BD75F4;
+}
